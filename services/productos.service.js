@@ -41,7 +41,7 @@ find(){//Funcion que contiene objeto promise
   return new Promise((resolve, reject)=>{//Objeto promise, parametro callback que contiene 2 callbacks y una funcion asincrona que a su vez genera un llamado de funcion en un determinado tiempo
     setTimeout(() => {
       resolve(this.products);
-    }, 5000);
+    }, 1000);
   });
 }
 
