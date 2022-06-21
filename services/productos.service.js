@@ -1,5 +1,5 @@
 const faker = require('faker');//Importamos faker que nos proporciona data fake y lo almacenamos
-const boom = require('@hapi/boom')//Importar boom y almacenar
+const boom = require('@hapi/boom');//Importar boom y almacenar
 
 //----------------------------------------------------------
 
