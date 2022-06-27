@@ -39,7 +39,7 @@ findOne(id){//Funcion con parametro
 update(id, changes){//Funcion con 2 parametros
   const index = this.categorias.findIndex(item => item.id === id);//Toma la propiedad, aplica metodo para identificar la posicion del id, callback que entrega el id y lo almacena
   if (index===-1) {//Si index no encuentra el elemento envia un mensaje de error
-    throw new Error('product not found');
+    throw new Error('categoria not found');
   }
   const categoria = this.categorias[index];//Toma la propiedad, identifica posicion y la almacena
   this.categorias[index]={//Toma la propiedad, identifica la posicion, indica que quiere que persistan todos los atributos y que se generen todos los cambios
@@ -54,7 +54,7 @@ update(id, changes){//Funcion con 2 parametros
 delete(id){//Funcion con parametro
   const index = this.categorias.findIndex(item => item.id === id);//Aplicara metodo findIndex a la propiedad para encontrar la posicion del id y almacenarla en la variable constante
   if (index===-1) {//Si index no encuentra el elemento envia un mensaje de error
-    throw new Error('product not found');
+    throw new Error('categoria not found');
   }
   this.categorias.splice(index, 1);//Toma la propiedad, aplica metodo para eliminar la posicion y el elemento
   return {id};//Entrega como resultado el parametro que fue eliminado

@@ -6,7 +6,7 @@ const {boomErrorHandler} = require('./middlewares/error.handler');//Importa arch
 //---------------------------------------------------------------------------
 
 const app = express();//Variable constante almacena express que actuara como metodo constructor
-const port = 3000;//Puerto en el que corre la aplicacion
+const port = process.env.PORT || 3000;//Puerto en el que corre la aplicacion
 
 //--------------------------------------------------------
 

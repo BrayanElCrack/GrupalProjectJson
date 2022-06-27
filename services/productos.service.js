@@ -1,5 +1,5 @@
 const faker = require('faker');//Importamos faker que nos proporciona data fake y lo almacenamos
-const boom = require('@hapi/boom');//Importar boom y almacenar
+//const boom = require('@hapi/boom');//Importar boom y almacenar
 
 //----------------------------------------------------------
 
@@ -48,14 +48,14 @@ find(){//Funcion que contiene objeto promise
 //-----------------------------------------------
 
 async findOne(id){//Funcion con parametro
-  const product = this.products.find(item => item.id === id);//Toma propiedad, aplica metodo para identificar el id y lo almacena
-  if (!product) {//Si no existe se ejecuta el error
+  return this.products.find(item => item.id === id);//Toma propiedad, aplica metodo para identificar el id y lo almacena
+  /*if (!product) {//Si no existe se ejecuta el error
     throw boom.notFound('Product not found');
   }
   if (product.isBlock) {//Si esta bloqueado ejecuta el error
     throw boom.conflict('Product is block');
   }
-  return product;//Se ejecuta si lo anterior no lo hace
+  return product;//Se ejecuta si lo anterior no lo hace*/
 }
 
 //-------------------------------------------------------
@@ -63,7 +63,8 @@ async findOne(id){//Funcion con parametro
 async update(id, changes){//Funcion con 2 parametros
   const index = this.products.findIndex(item => item.id === id);//Aplicara metodo findIndex al arreglo products para encontrar la posicion del id y almacenarla en la variable constante
   if (index===-1) {//Si index no encuentra el elemento envia un mensaje de error
-    throw boom.notFound('Product not found');
+    throw new Error('producto not found');
+    //throw boom.notFound('Product not found');
   }
   const product = this.products[index];//Se dirige al arreglo, identifica posicion y la almacena
   this.products[index]={//Se dirige al arreglo, identifica la posicion, indica que quiere que persistan todos los atributos y que se generen todos los cambios
@@ -78,7 +79,8 @@ async update(id, changes){//Funcion con 2 parametros
 async delete(id){
   const index = this.products.findIndex(item => item.id === id);//Aplicara metodo findIndex al arreglo products para encontrar la posicion del id y almacenarla en la variable constante
   if (index===-1) {//Si index no encuentra el elemento envia un mensaje de error
-    throw boom.notFound('Product not found');
+    throw new Error('producto not found');
+    //throw boom.notFound('Product not found');
   }
   this.products.splice(index, 1);//Se dirige al arreglo, aplica metodo para eliminar la posicion y el elemento
   return {id};//Retorna id que fue eliminado
