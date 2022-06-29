@@ -5,9 +5,23 @@ const faker = require('faker');//Importamos faker y almacenamos
 class UsuariosService {//Crear clase
   constructor(){//Metodo constructor y sus propiedades
     this.usuarios = [];
+    this.generate();
   }
 
 //-----------------------------------------------------
+
+generate(){//Funcion
+  const limit = 10;//Variable constante que almacena un entero
+  for (let index = 0; index < limit; index++) {//Ciclo for
+    this.usuarios.push({//push almacenara objetos al arreglo 100 veces gracias al ciclo for
+    name: faker.name.findName(),
+    last_name: faker.name.findName(),
+    email: faker.internet.email(),
+    });
+  }
+}
+
+//--------------------------------------------------------------
 
 create(data){//Funcion con parametro
   const newUsuario = {//Variable almacena un objeto, genera id de forma randomica y procede a mostrar los datos insomnia
@@ -24,7 +38,7 @@ find(){//Funcion
   return new Promise((resolve, reject)=>{//Objeto promise, parametro callback que contiene 2 callbacks, funcion asincrona que a su vez tiene un callback y tiempo en milisegundos
     setTimeout(() => {
       resolve(this.usuarios);
-    }, 5000);
+    }, 1000);
   });
 }
 
